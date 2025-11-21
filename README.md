@@ -20,20 +20,128 @@ Este README tiene como objetivo entregar instrucciones claras para que cualquier
 
 ```bash
 git clone https://github.com/ProyectosAcademicos/Levelup-store-react.git
-
+```
 
 ⚠️ Si el repositorio del juego es distinto, reemplazar el link anterior por el correcto.
 Luego ingresar al directorio del proyecto:
 
-
+```bash
 cd Juego_cuadros/Juego_cuadrados/código
-
+```
 
 2️⃣ Crear un entorno virtual (recomendado)
 
 ```bash
 python3 -m venv .venv
-
+```
 Activar el entorno virtual:
 macOS / Linux:
+
+```bash
+source .venv/bin/activate
+```
+
+Windows:
+
+```bash
+.\venv\Scripts\activate
+```
+
+Debes ver algo así en tu terminal:
+
+```bash
+(.venv)
+```
+
+3️⃣ Instalar dependencias
+
+```bash
+pip install -r requirements.txt
+```
+
+Si el archivo requirements.txt aún no existe, instalar manualmente:
+
+```bash
+pip install pygame
+```
+
+Y luego generar el archivo:
+
+```bash
+pip freeze > requirements.txt
+```
+
+▶️ Ejecutar el Juego
+Con el entorno virtual activado:
+
+```bash
+python bala_juego.py
+```
+
+o el archivo principal que corresponda, por ejemplo:
+
+```bash
+python main.py
+```
+
+Estructura del proyecto:
+
+```bash
+📁 código/
+ ├── bala_juego.py          # Archivo principal o módulo del juego
+ ├── jugador.py             # Control del personaje
+ ├── enemigos.py            # Lógica de enemigos
+ ├── niveles.py             # Configuración de niveles
+ ├── assets/                # Imágenes, sonidos, sprites
+ ├── utils/                 # Funciones auxiliares
+ ├── .venv/                 # Entorno virtual (no se sube a GitHub)
+ ├── requirements.txt       # Dependencias
+ └── README.md              # Documentación del proyecto
+
+```
+
+👨‍💻 Guía para Desarrolladores
+➤ Crear una rama personal
+Cada colaborador debe trabajar en su propia rama:
+
+```bash
+git checkout -b develop_tuNombre
+```
+
+```bash
+git add .
+git commit -m "Descripción del cambio"
+git push origin develop_tuNombre
+```
+
+🔧 Solución de problemas comunes
+❗ Error: ModuleNotFoundError: No module named 'pygame'
+Solución:
+Activar entorno virtual:
+
+```bash
+source .venv/bin/activate
+```
+
+Instalar pygame:
+
+```bash
+pip install pygame
+``
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
