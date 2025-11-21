@@ -1,0 +1,9 @@
+jonathan - 0
+jonathan - 0
+jonathan - 1
+jona - 3
+jona2 - 28
+clear - 2
+jonathan/usr/local/bin/python3 "/Users/jonathansaravia/Library/CloudStorage/OneDrive-FundacionInstitutoProfesionalDuocUC/Proyectos programacion y ux ui/Juegos programados/Juego de cuadrados/código/pygame1.py" - 0
+jonathan - 0
+clear - 0
