@@ -127,9 +127,7 @@ Instalar pygame:
 
 ```bash
 pip install pygame
-``
-
-
+```
 
 
 
