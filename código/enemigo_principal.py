@@ -1,29 +1,26 @@
-#Acá se crea el personaje del juego
+#Acá se crea el enemigo del juego
 #Importamos la librería pygame
 import pygame
 
-import os
-
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-
-
-#El personaje será un cubo
-class Cubo:
+#El enemigo también será un cubo
+class Enemigo:
     def __init__(self,x,y):
         #Comenzamos a configurar las posiciones iniciales y dimensiones
         self.x=x
         self.y=y
-        self.ancho = 50
+        self.ancho = 200
         self.alto = 50
-        self.velocidad = 10
-        self.color = "red"
+        self.velocidad = 18
+        self.color = "purple"
         #rect corresponde a rectángulo
         #pygame.Rect(self.x, self.y,self.ancho,self.alto) aca indicamos las dimensiones y coordenanas (posiciones) que previamente habíamos determinao
         self.rect=pygame.Rect(self.x, self.y,self.ancho,self.alto)
-        self.imagen = pygame.image.load(os.path.join(BASE_DIR, "../media/pngegg.png"))
-        self.imagen = pygame.transform.scale(self.imagen, (self.ancho, self.alto))
-
+        # self.vida= 5 establece la cantidad de vidas del enemigo
+        self.vida= 5
+    
     def dibujar(self,ventana):
         self.rect=pygame.Rect(self.x, self.y,self.ancho,self.alto)
-        # pygame.draw.rect(ventana,self.color,self.rect)
-        ventana.blit(self.imagen, (self.x, self.y))
+        pygame.draw.rect(ventana,self.color,self.rect)
+    #Función para que el enemigo se mueva para abajo
+    def movimiento(self):
+        self.y += self.velocidad
