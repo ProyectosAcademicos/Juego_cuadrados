@@ -12,18 +12,23 @@ from bala_juego import Bala
 pygame.init()
 # Definir constantes
 
+pygame.mixer.init()
+#Cargar y reproducir música de fondo
+
 #Ancho de la pantalla
-ANCHO = 500
-#Alto de la pantalla
-ALTO = 800
+ANCHO = 400
+#Alto de la pantalla  
+ALTO = 600
 #Ventana en donde se despliega el ancho y alto
 VENTANA = pygame.display.set_mode([ANCHO,ALTO])
 #Indico la configuración del FPS que se utilizará después con la variable reloj más abajo
 FPS = 60
 #Definiendo la fuente del texto
 FUENTE = pygame.font.SysFont("Arial", 40)
+SONIDO_DISPARO = pygame.mixer.Sound('media/1130.wav')
+SONIDO_MUERTE = pygame.mixer.Sound('media/358.wav')
 
-#la variable para comenzar 
+#la variable para comenzar  
 jugando = True
 #variables vidas y puntos para establecer un sistema que permita que el usuario juegue una cantidad de veces determinadas
 vida = 5
@@ -61,6 +66,7 @@ def crear_bala():
     if pygame.time.get_ticks() - ultima_bala > tiempo_entre_balas:
         balas.append(Bala(cubo.rect.centerx,cubo.rect.centery))
         ultima_bala=pygame.time.get_ticks()
+        SONIDO_DISPARO.play()
 
 
 #función para gestionar las teclas
@@ -145,11 +151,13 @@ while jugando and vida > 0:
         
         #if enemigo.vida <= 0 permite que al llegar el enemigo a 0 vidas desaparezca
         if enemigo.vida <= 0:
+            SONIDO_MUERTE.play()
             enemigos.remove(enemigo)
         
     for bala in balas:
         bala.dibujar(VENTANA)
         bala.movimiento()
+
 
     #El comando blit toma un objeto y lo pega en la pantalla
     #le indicamos el objeto "texto_vida"
@@ -160,6 +168,8 @@ while jugando and vida > 0:
     
     pygame.display.update()
 
+SONIDO_MUERTE.play()
+pygame.time.delay(1500)  # 1.5 segundos para que suene el sonido antes de cerrar
 #Acá cerramos la ventana de  pygame
 pygame.quit()
 
